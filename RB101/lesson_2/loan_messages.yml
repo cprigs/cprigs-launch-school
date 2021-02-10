@@ -1,0 +1,8 @@
+
+welcome: "Welcome to loan Calculator! Enter your name:"
+valid_name: "Make sure to enter a valid name."
+loan_amount: "What is the loan amount in dollars?"
+apr: "What is the APR? If 5% enter 5."
+valid_number: "hmm.. that doesn't look like a valid number"
+loan_duration: "What is the loan duration in months?"
+# ... rest of file omitted for brevity
