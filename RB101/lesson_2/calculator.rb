@@ -12,12 +12,8 @@ Kernel.puts("Welcome to the Calculator!")
 Kernel.puts("What is the first number?")
 number1 = Kernel.gets().chomp()
 
-
-
 Kernel.puts("What is the second number?")
 number2 = Kernel.gets().chomp()
-
-
 
 Kernel.puts("what operation would you like to perform? 1)add 2)subtract 3)multiply 4)divide")
 operator = Kernel.gets().chomp()

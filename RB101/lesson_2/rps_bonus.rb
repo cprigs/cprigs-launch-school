@@ -1,5 +1,5 @@
 # Rock Paper Scissors game
-# 1. Need to add lizard and spock into code
+# Need to add lizard and spock into code
 # need to allow for abbreviated choices while differentiating sc and sp
 # Keep score of wins, match is over at 5 wins
 # Store winning choices in hash, if retuned array includes

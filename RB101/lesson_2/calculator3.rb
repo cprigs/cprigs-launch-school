@@ -11,7 +11,7 @@
 require 'yaml'
 MESSAGES = YAML.load_file('calculator_messages.yml')
 
-puts MESSAGES.inspect
+#puts MESSAGES.inspect
 
 def prompt(message)
   Kernel.puts("=> #{message}")
@@ -34,7 +34,7 @@ def operation_to_message(op)
   end
 end
 
-prompt(MESSAGES['welcome'])
+prompt(MESSAGES['en']['welcome'])
 name = ''
 
 loop do

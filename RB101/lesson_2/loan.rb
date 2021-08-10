@@ -42,7 +42,7 @@ prompt("hi #{name}")
 loop do # main loop
   loop do
     prompt(MESSAGES['loan_amount'])
-    loan_val = Kernel.gets().chomp()
+    loan_val = Kernel.gets.chomp
     if valid_number?(loan_val)
       break
     else
