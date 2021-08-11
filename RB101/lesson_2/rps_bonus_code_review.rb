@@ -43,14 +43,20 @@ def win?(first, second)
 end
 
 def get_user_choice
-  prompt("Choose one: #{COMPUTER_CHOICES.join(', ')}")
-  user_input = gets.chomp
-  if valid_input(user_input)
-    user_choice = VALID_CHOICES[valid_input(user_input)].last
-    break
-  else
-    prompt("That is not a valid choice.")
+  loop do
+    prompt("Choose one: #{COMPUTER_CHOICES.join(', ')}")
+    user_input = gets.chomp
+    if valid_input(user_input)
+      user_choice = VALID_CHOICES[valid_input(user_input)].last
+      return user_choice
+    else
+      prompt("That is not a valid choice.")
+    end
   end
+end
+
+def display_choices(player, computer)
+  puts("You chose: #{player}; Computer chose: #{computer}")
 end
 
 def display_results(player, computer)
@@ -63,12 +69,35 @@ def display_results(player, computer)
   end
 end
 
-def grand_winner(score1, score2)
+def update_score(player, computer, scores)
+  if win?(player, computer)
+    scores[:player] += 1
+  elsif win?(computer, player)
+    scores[:computer] += 1
+  else
+    scores
+  end
+end
 
+def display_scores(scores)
+  prompt("You have won: #{scores[:player]}")
+  prompt("The computer has won: #{scores[:computer]}")
+end
+
+def someone_grand_winner?(scores)
+  (scores[:player] == GOAL_WINS) || (scores[:computer] == GOAL_WINS)
+end
+
+def display_grand_winner(scores)
+  if scores[:player] == GOAL_WINS
+    puts('You won the match!')
+  else
+    puts('The computer won the match!')
+  end
 end
 
 def reset_scores
-  {player: 0,computer: 0}
+  { player: 0, computer: 0 }
 end
 
 def display_goodbye
@@ -85,55 +114,38 @@ end
 
 def play_again?
   prompt("Do you want to play again?(y/n)")
-loop do
-  answer = gets.chomp
-  if answer.downcase.start_with?('y')
-    return true
-  elsif answer.downcase.start_with?('n')
-    return false
-  else
-    prompt("Invalid Input, please respond with yes or no.")
+  loop do
+    answer = gets.chomp
+    if answer.downcase.start_with?('y')
+      return true
+    elsif answer.downcase.start_with?('n')
+      return false
+    else
+      prompt("Invalid Input, please respond with yes or no.")
+    end
   end
 end
 
-display_welcome
+display_welcome()
 scores = reset_scores
 
-user_choice = ''
-user_input = ''
-user_wins = 0
-computer_wins = 0
 loop do
   loop do
-  user_choice = get_user_choice
-  computer_choice = get_random_choice
+    user_choice = get_user_choice()
+    computer_choice = get_random_choice()
+
+    system 'clear'
+
+    display_choices(user_choice, computer_choice)
+    display_results(user_choice, computer_choice)
+
+    update_score(user_choice, computer_choice, scores)
+    display_scores(scores)
+    break if someone_grand_winner?(scores)
   end
-
-  computer_choice = get_random_choice
-  system 'clear'
-  puts("You chose: #{user_choice}; Computer chose: #{computer_choice}")
-
-  display_results(user_choice, computer_choice)
-
-  if win?(user_choice, computer_choice)
-    user_wins += 1
-  elsif win?(computer_choice, user_choice)
-    computer_wins += 1
-  end
-
-  prompt("You have won: #{user_wins}")
-  prompt("The computer has won: #{computer_wins}")
-
-  next unless (user_wins == GOAL_WINS) || (computer_wins == GOAL_WINS)
-
-  if user_wins == GOAL_WINS
-    puts('You won the match!')
-  else
-    puts('The computer won the match!')
-  end
-
-  break unless play_again?
+  display_grand_winner(scores)
+  break unless play_again?()
   scores = reset_scores
 end
 
-display_goodbye
+display_goodbye()

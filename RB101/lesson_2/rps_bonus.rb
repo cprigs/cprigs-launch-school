@@ -24,6 +24,7 @@ GOAL_WINS = 5
 
 def valid_input(input)
   keys = VALID_CHOICES.keys
+
   num = 0
   while num < keys.length
     if VALID_CHOICES[keys[num]].include?(input.downcase)

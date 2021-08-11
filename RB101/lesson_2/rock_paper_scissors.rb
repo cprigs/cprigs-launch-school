@@ -1,7 +1,7 @@
 # Rock Paper Scissors game
 VALID_CHOICES = %w(rock paper scissors)
 
-puts VALID_CHOICES.inspect
+
 def prompt(message)
   puts("=> #{message}")
 end

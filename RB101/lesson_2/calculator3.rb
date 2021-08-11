@@ -41,7 +41,7 @@ loop do
   name = Kernel.gets().chomp()
 
   if name.empty?()
-    prompt(MESSAGES['valid_name'])
+    prompt(MESSAGES['en']['valid_name'])
   else
     break
   end
