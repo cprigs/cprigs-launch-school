@@ -1,13 +1,13 @@
 
 
 def count_occurrences(array)
-  keys = array.uniq
+  element = array.uniq
   values = []
   i = 0
 
-  while i < keys.length
-    values[i] = array.count(keys[i])
-    puts "#{keys[i]} => #{values[i]}"
+  while i < element.length
+    values[i] = array.count(element[i])
+    puts "#{element[i]} => #{values[i]}"
     i += 1
   end
 end
