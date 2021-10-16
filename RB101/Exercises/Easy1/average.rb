@@ -11,7 +11,7 @@ def average(array)
       i +=1
     end
   end
-    total[array.length-1]/ array.length
+    (total[array.length-1]/ array.length).to_f
 end
 
 puts average([1, 6]) == 3 # integer division: (1 + 6) / 2 -> 3

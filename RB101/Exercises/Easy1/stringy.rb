@@ -6,18 +6,14 @@ def stringy(length)
 
   while i < length
 
-    if i == 0
+    if i.even?
       string << "1"
       i += 1
-    elsif i.odd?
+    else i.odd?
       string << "0"
-      i += 1
-    else
-      string << "1"
       i += 1
     end
   end
-puts string
   string.to_s
 end
 
