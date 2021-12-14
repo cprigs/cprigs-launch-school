@@ -1,11 +1,8 @@
-
-def calculate_bonus(salary, boolean)
-  if boolean == true
-    return (salary / 2)
-  else
-    return 0
-  end
+def calculate_bonus(num, boolean)
+  return 0 if boolean == false
+  num / 2
 end
+
 
 
 puts calculate_bonus(2800, true) == 1400
