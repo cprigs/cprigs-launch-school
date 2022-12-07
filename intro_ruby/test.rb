@@ -1,23 +1,20 @@
-def method(string)
-  if string.length >= 10 
-    string.upcase!
-  else
-    string
-  end
-end
+# Each player starts with the same basic stats.
 
-puts method("hello")
-puts method("You areeeeeeeee!!@")
+player = { strength: 10, dexterity: 10, charisma: 10, stamina: 10 }
 
-# caps_method.rb
+# Then the player picks a character class and gets an upgrade accordingly.
 
-def caps(string)
-  if string.length > 10
-    string.upcase
-  else
-    string
-  end
-end
+character_classes = {
+  warrior: { strength:  20 },
+  thief:   { dexterity: 20 },
+  scout:   { stamina:   20 },
+  mage:    { charisma:  20 }
+}
 
-puts caps("Joe Smith")
-puts caps("Joe Robertson")
+puts 'Please type your class (warrior, thief, scout, mage):'
+input = gets.chomp.downcase.to_sym
+
+player = player.merge(character_classes[input])
+
+puts 'Your character stats:'
+puts player
