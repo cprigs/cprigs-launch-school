@@ -1,0 +1,11 @@
+#messages for the mortgage calculator
+welcome: "Welcome to the Mortgage loan Calculator! Enter your name:"
+valid_name: "Make sure to enter a valid name."
+loan_amount: "What is the loan amount in dollars?"
+apr: "What is the APR? If 5% enter 5."
+valid_number: "hmm.. that doesn't look like a valid number"
+loan_duration: "What is the loan duration in months?"
+monthly_payment: "Your monthly payment will be:"
+total_interest: "Your total interest will be:"
+another_calculation: "Would you like to do another calculation?"
+goodbye: "Thank you for using the mortgage calculator "
